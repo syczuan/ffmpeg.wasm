@@ -1,4 +1,3 @@
-#!/bin/bash
 # `-o <OUTPUT_FILE_NAME>` must be provided when using this build script.
 # ex:
 #     bash ffmpeg-wasm.sh -o ffmpeg.js
@@ -13,24 +12,18 @@ CONF_FLAGS=(
   -I$INSTALL_DIR/include 
   -L$INSTALL_DIR/lib 
   -Llibavcodec 
-  -Llibavdevice 
   -Llibavfilter 
   -Llibavformat 
   -Llibavutil 
-  -Llibpostproc 
-  -Llibswresample 
-  -Llibswscale 
+  -Llibswscale
   -lavcodec 
-  -lavdevice 
   -lavfilter 
   -lavformat 
-  -lavutil 
-  -lpostproc 
-  -lswresample 
-  -lswscale 
+  -lavutil
+  -lswscale
+  -lz
   -Wno-deprecated-declarations 
   $LDFLAGS 
-  -sENVIRONMENT=worker
   -sWASM_BIGINT                            # enable big int support
   -sUSE_SDL=2                              # use emscripten SDL2 lib port
   -sMODULARIZE                             # modularized to use as a library

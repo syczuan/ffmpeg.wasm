@@ -35,3 +35,13 @@ Join us on Discord!
 - [Contribution](https://ffmpegwasm.netlify.app/docs/contribution/core)
 
 Please sponsor ffmpeg.wasm to make it sustainable. :heart:
+
+
+
+Modify `Dockerfile`, `build/ffmpeg.sh`, and `build/ffmpeg-wasm.sh` to compile a WebAssembly (WASM) version of FFmpeg that is specifically used for extracting video frames.
+
+**Note:** Extracting some video frames as JPEG may cause a "memory access out of bounds" error. To avoid this, export frames as PNG or reduce the quality, e.g.,
+
+```sh
+ffmpeg -i input.mp4 -ss 1 -vframes 1 -q:v 15 output.jpg
+```
